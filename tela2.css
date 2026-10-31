@@ -1,0 +1,1041 @@
+/* =========================================================
+   TELA 2 — ADEMICON
+   DESTAQUES DA SEMANA
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+
+    height: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    overflow: hidden;
+
+}
+
+
+body {
+
+    background:
+
+        radial-gradient(
+            circle at 18% 45%,
+            rgba(255, 0, 0, .075),
+            transparent 32%
+        ),
+
+        #050505;
+
+    color: #fff;
+
+    font-family:
+        'Inter',
+        Arial,
+        sans-serif;
+
+}
+
+
+/* =========================================================
+   TELA
+   ========================================================= */
+
+.screen {
+
+    width: 100%;
+
+    height: 100vh;
+
+    max-width: 1600px;
+
+    margin: 0 auto;
+
+    padding:
+        28px
+        42px
+        18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: relative;
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    flex-shrink: 0;
+
+}
+
+
+.brand-mark {
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: -1.5px;
+
+}
+
+
+.location {
+
+    color: #999;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+
+}
+
+
+.status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #aaa;
+
+    font-size: 11px;
+
+    margin-top: 5px;
+
+}
+
+
+.status-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    background: #00ff66;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px #00ff66;
+
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.title-section {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    margin-top: 24px;
+
+    flex-shrink: 0;
+
+}
+
+
+.title-line {
+
+    width: 8px;
+
+    height: 82px;
+
+    background: #ff0000;
+
+    transform: skewX(-14deg);
+
+    box-shadow:
+        0 0 18px
+        rgba(255, 0, 0, .25);
+
+}
+
+
+.title-section h1 {
+
+    font-size: 52px;
+
+    line-height: .95;
+
+    font-weight: 900;
+
+    letter-spacing: -2.5px;
+
+}
+
+
+.title-section h1 span {
+
+    color: #ff0000;
+
+}
+
+
+.title-section p {
+
+    margin-top: 10px;
+
+    color: #ddd;
+
+    font-size: 15px;
+
+    letter-spacing: .3px;
+
+}
+
+
+.title-section p strong {
+
+    color: #fff;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+   ========================================================= */
+
+.highlights {
+
+    flex: 1;
+
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 28px;
+
+    align-items: stretch;
+
+    margin-top: 22px;
+
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.highlight-card {
+
+    position: relative;
+
+    min-height: 0;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #151515,
+            #080808
+        );
+
+    border:
+        1px solid
+        #292929;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    padding:
+        25px
+        35px
+        30px;
+
+    overflow: hidden;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,.025);
+
+}
+
+
+.highlight-card.semana {
+
+    border-color:
+        rgba(255, 0, 0, .70);
+
+    box-shadow:
+
+        0 0 35px
+        rgba(255, 0, 0, .10),
+
+        inset 0 1px 0
+        rgba(255,255,255,.025);
+
+}
+
+
+.highlight-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+
+    height: 420px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255, 0, 0, .10),
+            transparent 68%
+        );
+
+    bottom: -260px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   CABEÇALHO DO CARD
+   ========================================================= */
+
+.card-header {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+
+}
+
+
+.slash {
+
+    color: #ff0000;
+
+    font-size: 40px;
+
+    font-weight: 900;
+
+    line-height: .7;
+
+    transform:
+        skewX(-12deg);
+
+}
+
+
+.card-header h2 {
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    letter-spacing: -.7px;
+
+}
+
+
+/* =========================================================
+   POSIÇÃO
+   ========================================================= */
+
+.position {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 17px;
+
+    padding:
+        8px
+        20px;
+
+    background: #ff0000;
+
+    border-radius: 8px;
+
+    font-size: 19px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 0 20px
+        rgba(255,0,0,.25);
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   FOTO
+   ========================================================= */
+
+.photo-wrapper {
+
+    width: 245px;
+
+    height: 245px;
+
+    margin-top: 17px;
+
+    border-radius: 50%;
+
+    padding: 5px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #ff0000,
+            #700000
+        );
+
+    box-shadow:
+
+        0 0 35px
+        rgba(255,0,0,.20);
+
+    flex-shrink: 0;
+
+    z-index: 2;
+
+}
+
+
+.photo-wrapper img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 50%;
+
+    background: #222;
+
+    border:
+        4px solid
+        #101010;
+
+}
+
+
+/* =========================================================
+   NOME
+   ========================================================= */
+
+.highlight-card h3 {
+
+    max-width: 90%;
+
+    margin-top: 18px;
+
+    text-align: center;
+
+    font-size: 27px;
+
+    line-height: 1.08;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    letter-spacing: -.5px;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   VALOR PRINCIPAL
+   ========================================================= */
+
+.main-value {
+
+    margin-top: 14px;
+
+    color: #ff0000;
+
+    font-size: 36px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    text-align: center;
+
+    letter-spacing: -.8px;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   PARABÉNS
+   ========================================================= */
+
+.congratulations {
+
+    margin-top: 17px;
+
+    color: #ff0000;
+
+    font-size: 22px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 14px
+        rgba(255,0,0,.25);
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   DESCRIÇÃO
+   ========================================================= */
+
+.description {
+
+    margin-top: 10px;
+
+    color: #d0d0d0;
+
+    font-size: 15px;
+
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 14px;
+
+    padding-left: 10px;
+
+    border-left:
+        3px solid
+        #ff0000;
+
+    color: #777;
+
+    font-size: 10px;
+
+    min-height: 20px;
+
+}
+
+
+footer strong {
+
+    color: #ff0000;
+
+    font-weight: 900;
+
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO ENTRE TELAS
+   ========================================================= */
+
+.screen-navigation {
+
+    position: fixed;
+
+    right: 26px;
+
+    bottom: 20px;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    min-width: 105px;
+
+    padding:
+        10px
+        16px;
+
+    color: #fff;
+
+    background:
+        rgba(
+            8,
+            8,
+            8,
+            .92
+        );
+
+    border:
+        1px solid
+        #333;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: .8px;
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+    box-shadow:
+        0 5px 20px
+        rgba(
+            0,
+            0,
+            0,
+            .45
+        );
+
+    transition:
+        all .2s ease;
+
+}
+
+
+.screen-navigation b {
+
+    color: #ff0000;
+
+    font-size: 18px;
+
+    line-height: 1;
+
+}
+
+
+.screen-navigation:hover {
+
+    border-color:
+        #ff0000;
+
+    background:
+        rgba(
+            255,
+            0,
+            0,
+            .10
+        );
+
+    box-shadow:
+        0 0 20px
+        rgba(
+            255,
+            0,
+            0,
+            .20
+        );
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .screen {
+
+        padding:
+            22px
+            30px
+            14px;
+
+    }
+
+
+    .title-section h1 {
+
+        font-size: 44px;
+
+    }
+
+
+    .photo-wrapper {
+
+        width: 205px;
+
+        height: 205px;
+
+    }
+
+
+    .highlight-card h3 {
+
+        font-size: 23px;
+
+    }
+
+
+    .main-value {
+
+        font-size: 31px;
+
+    }
+
+
+    .screen-navigation {
+
+        right: 16px;
+
+        bottom: 14px;
+
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    html,
+    body {
+
+        overflow: auto;
+
+    }
+
+
+    .screen {
+
+        height: auto;
+
+        min-height: 100vh;
+
+    }
+
+
+    .highlights {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .highlight-card {
+
+        min-height: 600px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .screen {
+
+        padding:
+            18px;
+
+    }
+
+
+    .title-section {
+
+        justify-content: flex-start;
+
+    }
+
+
+    .title-section h1 {
+
+        font-size: 34px;
+
+    }
+
+
+    .title-line {
+
+        height: 65px;
+
+    }
+
+
+    .photo-wrapper {
+
+        width: 180px;
+
+        height: 180px;
+
+    }
+
+
+    .highlight-card h3 {
+
+        font-size: 20px;
+
+    }
+
+
+    .main-value {
+
+        font-size: 27px;
+
+    }
+
+
+    .congratulations {
+
+        font-size: 19px;
+
+    }
+
+
+    .description {
+
+        font-size: 12px;
+
+    }
+
+}
+
+/* =========================================================
+   NAVEGAÇÃO ENTRE TELAS
+   ========================================================= */
+
+.screen-navigation {
+
+    position: fixed;
+
+    right: 28px;
+
+    bottom: 18px;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    min-width: 115px;
+
+    height: 38px;
+
+    padding:
+        0
+        16px;
+
+    color: #fff;
+
+    background:
+        rgba(
+            8,
+            8,
+            8,
+            .96
+        );
+
+    border:
+        1px solid
+        #444;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: .8px;
+
+    box-shadow:
+        0 5px 20px
+        rgba(
+            0,
+            0,
+            0,
+            .55
+        );
+
+    transition:
+        all .2s ease;
+
+}
+
+
+.screen-navigation b {
+
+    color: #ff0000;
+
+    font-size: 20px;
+
+    line-height: 1;
+
+}
+
+
+.screen-navigation:hover {
+
+    color: #fff;
+
+    border-color:
+        #ff0000;
+
+    background:
+        rgba(
+            255,
+            0,
+            0,
+            .12
+        );
+
+    box-shadow:
+        0 0 20px
+        rgba(
+            255,
+            0,
+            0,
+            .25
+        );
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.screen-navigation-back {
+
+    right: 28px;
+
+    bottom: 18px;
+
+}

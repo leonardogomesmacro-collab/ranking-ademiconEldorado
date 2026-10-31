@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Ranking Ademicon | Goiânia - Jardim Goiás
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+<main class="dashboard">
+
+
+    <!-- =====================================================
+         LADO ESQUERDO
+         ===================================================== -->
+
+    <section class="left-panel">
+
+
+        <!-- LOGO -->
+
+        <div class="brand">
+
+            <img
+                src="logo-ademicon.png.png"
+                alt="Ademicon"
+            >
+
+            <div class="brand-location">
+                Goiânia - Jardim Goiás
+            </div>
+
+        </div>
+
+
+        <!-- TÍTULO -->
+
+        <div class="hero-title">
+
+            <div>
+                RANKING
+            </div>
+
+            <div class="red">
+                DE VENDAS
+            </div>
+
+            <p>
+                OS MELHORES,
+                <strong>INSPIRAM TODOS.</strong>
+            </p>
+
+        </div>
+
+
+        <!-- PÓDIO -->
+
+        <section class="podium">
+
+
+            <!-- 2º -->
+
+            <div class="podium-card second">
+
+                <div class="position">
+                    2º
+                </div>
+
+                <div class="podium-image">
+
+                    <img
+                        id="foto2"
+                        src=""
+                        alt=""
+                    >
+
+                </div>
+
+                <h2 id="nome2">
+                    -
+                </h2>
+
+                <strong id="valor2">
+                    R$ -
+                </strong>
+
+            </div>
+
+
+            <!-- 1º -->
+
+            <div class="podium-card first">
+
+                <div class="position">
+                    1º
+                </div>
+
+                <div class="podium-image">
+
+                    <img
+                        id="foto1"
+                        src=""
+                        alt=""
+                    >
+
+                </div>
+
+                <h2 id="nome1">
+                    -
+                </h2>
+
+                <strong id="valor1">
+                    R$ -
+                </strong>
+
+            </div>
+
+
+            <!-- 3º -->
+
+            <div class="podium-card third">
+
+                <div class="position">
+                    3º
+                </div>
+
+                <div class="podium-image">
+
+                    <img
+                        id="foto3"
+                        src=""
+                        alt=""
+                    >
+
+                </div>
+
+                <h2 id="nome3">
+                    -
+                </h2>
+
+                <strong id="valor3">
+                    R$ -
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- PILARES -->
+
+        <div class="pillars">
+
+
+            <div class="pillar">
+
+                <div class="pillar-icon">
+                    ◎
+                </div>
+
+                <div>
+
+                    <strong>
+                        FOCO
+                    </strong>
+
+                    <span>
+                        NO OBJETIVO
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="pillar">
+
+                <div class="pillar-icon">
+                    ☆
+                </div>
+
+                <div>
+
+                    <strong>
+                        DISCIPLINA
+                    </strong>
+
+                    <span>
+                        TODO DIA
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="pillar">
+
+                <div class="pillar-icon">
+                    ↗
+                </div>
+
+                <div>
+
+                    <strong>
+                        ESTRATÉGIA
+                    </strong>
+
+                    <span>
+                        COM INTELIGÊNCIA
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="pillar">
+
+                <div class="pillar-icon">
+                    ♜
+                </div>
+
+                <div>
+
+                    <strong>
+                        RESULTADOS
+                    </strong>
+
+                    <span>
+                        EXTRAORDINÁRIOS
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         LADO DIREITO
+         ===================================================== -->
+
+    <section class="right-panel">
+
+
+        <div class="ranking-panel">
+
+
+            <!-- CABEÇALHO -->
+
+            <header class="panel-header">
+
+                <h1>
+                    <span>/</span>
+                    TOP 10
+                </h1>
+
+                <p id="ultimaAtualizacao">
+                    ÚLTIMA ATUALIZAÇÃO: --/--/---- --:--
+                </p>
+
+            </header>
+
+
+            <!-- =================================================
+                 RESUMO
+                 ================================================= -->
+
+            <section class="summary">
+
+
+                <div class="summary-card">
+
+                    <span>
+                        VOLUME TOTAL DA UNIDADE
+                    </span>
+
+                    <strong id="volumeTotal">
+                        R$ -
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <span>
+                        META DO MÊS
+                    </span>
+
+                    <strong id="metaMes">
+                        R$ -
+                    </strong>
+
+                    <b id="percentMesTop">
+                        --%
+                    </b>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 PROGRESSO MENSAL
+                 ================================================= -->
+
+            <section class="monthly-progress">
+
+                <div class="progress-info">
+
+                    <strong id="percentMes">
+                        0%
+                    </strong>
+
+                    <div class="progress-track">
+
+                        <div
+                            id="progressMes"
+                            class="progress-fill"
+                        ></div>
+
+                    </div>
+
+                    <span>
+
+                        FALTAM
+
+                        <b id="percentFaltanteMes">
+                            0%
+                        </b>
+
+                        ·
+
+                        <b id="faltamMes">
+                            R$ -
+                        </b>
+
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 METAS
+                 ================================================= -->
+
+            <section class="goal-grid">
+
+
+                <!-- DIA -->
+
+                <div class="goal-card">
+
+                    <div class="goal-content">
+
+                        <span>
+                            META DIÁRIA
+                        </span>
+
+                        <strong id="metaDia">
+                            R$ -
+                        </strong>
+
+                        <small>
+                            REALIZADO HOJE
+                        </small>
+
+                        <b id="vendidoDia">
+                            R$ -
+                        </b>
+
+                    </div>
+
+                    <div
+                        class="circle-progress"
+                        id="circleDia"
+                    >
+
+                        <div class="circle-inner">
+
+                            <span id="percentDia">
+                                0%
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SEMANA -->
+
+                <div class="goal-card">
+
+                    <div class="goal-content">
+
+                        <span>
+                            META SEMANAL
+                        </span>
+
+                        <strong id="metaSemana">
+                            R$ -
+                        </strong>
+
+                        <small>
+                            REALIZADO NA SEMANA
+                        </small>
+
+                        <b id="vendidoSemana">
+                            R$ -
+                        </b>
+
+                    </div>
+
+                    <div
+                        class="circle-progress"
+                        id="circleSemana"
+                    >
+
+                        <div class="circle-inner">
+
+                            <span id="percentSemana">
+                                0%
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MÊS -->
+
+                <div class="goal-card">
+
+                    <div class="goal-content">
+
+                        <span>
+                            META MENSAL
+                        </span>
+
+                        <strong id="metaMes2">
+                            R$ -
+                        </strong>
+
+                        <small>
+                            REALIZADO NO MÊS
+                        </small>
+
+                        <b id="vendidoMes">
+                            R$ -
+                        </b>
+
+                    </div>
+
+                    <div
+                        class="circle-progress"
+                        id="circleMes"
+                    >
+
+                        <div class="circle-inner">
+
+                            <span id="percentMesCircle">
+                                0%
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 TABELA
+                 ================================================= -->
+
+            <section class="ranking">
+
+
+                <div class="ranking-header">
+
+                    <span>
+                        POS.
+                    </span>
+
+                    <span>
+                        CONSULTOR
+                    </span>
+
+                    <span>
+                        VOLUME
+                    </span>
+
+                </div>
+
+
+                <div id="rankingList"></div>
+
+
+            </section>
+
+
+        </div>
+
+
+        <!-- RODAPÉ -->
+
+        <footer>
+
+            <span class="footer-line"></span>
+
+            <span>
+                GRANDES RESULTADOS SÃO CONSTRUÍDOS
+                POR GRANDES ESCOLHAS.
+            </span>
+
+            <strong>
+                SIGA EM FRENTE.
+            </strong>
+
+        </footer>
+
+
+    </section>
+
+
+</main>
+
+
+<!-- =====================================================
+     STATUS
+     ===================================================== -->
+
+<div class="connection-status">
+
+    <span class="status-dot"></span>
+
+    <span id="status">
+        Conectando...
+    </span>
+
+</div>
+
+
+<!-- =====================================================
+     BOTÃO PARA TELA 2
+     ===================================================== -->
+
+<a
+    href="tela2.html"
+    class="screen-navigation screen-navigation-next"
+    aria-label="Ir para Tela 2"
+>
+
+    <span>
+        TELA 2
+    </span>
+
+    <b>
+        →
+    </b>
+
+</a>
+    
+    <a
+    href="tela3.html"
+    class="screen-navigation screen-navigation-annual"
+>
+    <span>RANKING ANUAL</span>
+    <b>↗</b>
+</a>
+
+
+<script src="app.js"></script>
+
+
+</body>
+
+</html>

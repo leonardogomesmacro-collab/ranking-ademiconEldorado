@@ -1,0 +1,1048 @@
+/* =========================================================
+   RANKING ADEMICON
+   TELA 03 — RANKING ANUAL
+   ========================================================= */
+
+@import url(
+    'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap'
+);
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+body {
+    background:
+        radial-gradient(
+            circle at 15% 40%,
+            rgba(255, 0, 0, .10),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255, 0, 0, .04),
+            transparent 30%
+        ),
+        #050505;
+
+    color: #fff;
+
+    font-family:
+        'Inter',
+        Arial,
+        sans-serif;
+}
+
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.annual-dashboard {
+
+    width: 100%;
+    height: 100vh;
+
+    padding:
+        28px
+        45px
+        18px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.annual-header {
+
+    position: relative;
+
+    flex-shrink: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        220px
+        1fr
+        220px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   MARCA
+   ========================================================= */
+
+.brand {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.brand img {
+
+    width: 125px;
+    height: auto;
+
+    filter:
+        brightness(0)
+        invert(1);
+}
+
+
+.brand span {
+
+    margin-top: 4px;
+
+    color: #999;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.annual-title {
+
+    text-align: center;
+
+    font-size: 50px;
+
+    line-height: .86;
+
+    letter-spacing: -3px;
+
+    font-weight: 900;
+}
+
+
+.annual-title .red {
+    color: #ff0000;
+}
+
+
+.annual-title p {
+
+    margin-top: 13px;
+
+    color: #aaa;
+
+    font-size: 13px;
+
+    line-height: 1;
+
+    letter-spacing: 0;
+
+    font-weight: 500;
+}
+
+
+.annual-title p strong {
+
+    color: #fff;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.annual-status {
+
+    justify-self: end;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #888;
+
+    font-size: 10px;
+}
+
+
+.status-dot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #00ff66;
+
+    box-shadow:
+        0 0 10px
+        #00ff66;
+}
+
+
+.connection-status {
+    display: none;
+}
+
+
+/* =========================================================
+   DESTAQUE DO 1º COLOCADO
+   ========================================================= */
+
+.annual-highlight {
+
+    position: relative;
+
+    width: 70%;
+
+    min-height: 115px;
+
+    margin:
+        22px
+        auto
+        14px;
+
+    padding:
+        15px
+        25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    border:
+        1px solid
+        rgba(255, 0, 0, .45);
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(255, 0, 0, .10),
+            rgba(20, 20, 20, .85)
+        );
+
+    box-shadow:
+        0 0 40px
+        rgba(255, 0, 0, .08);
+}
+
+
+/* =========================================================
+   LABEL DO DESTAQUE
+   ========================================================= */
+
+.highlight-label {
+
+    position: absolute;
+
+    top: -12px;
+    left: 25px;
+
+    padding:
+        5px
+        12px;
+
+    border-radius: 6px;
+
+    background: #ff0000;
+
+    color: #fff;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: .8px;
+}
+
+
+/* =========================================================
+   POSIÇÃO DO DESTAQUE
+   ========================================================= */
+
+.highlight-position {
+
+    width: 65px;
+    height: 65px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff1b1b,
+            #a60000
+        );
+
+    color: #fff;
+
+    font-size: 24px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 0 25px
+        rgba(255, 0, 0, .30);
+}
+
+
+/* =========================================================
+   CONTEÚDO DO DESTAQUE
+   ========================================================= */
+
+.highlight-content {
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.highlight-content span {
+
+    display: block;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 21px;
+
+    font-weight: 900;
+}
+
+
+.highlight-content strong {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #ff0000;
+
+    font-size: 23px;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   PARABÉNS
+   ========================================================= */
+
+.highlight-message {
+
+    padding:
+        8px
+        14px;
+
+    border:
+        1px solid
+        #ff0000;
+
+    border-radius: 8px;
+
+    color: #ff0000;
+
+    font-size: 12px;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   RANKING
+   ========================================================= */
+
+.annual-ranking {
+
+    width: 92%;
+
+    flex: 1;
+
+    min-height: 0;
+
+    margin:
+        0
+        auto;
+
+    border:
+        1px solid
+        #292929;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    background:
+        rgba(
+            7,
+            7,
+            7,
+            .90
+        );
+}
+
+
+/* =========================================================
+   GRID DO RANKING
+   ========================================================= */
+
+.ranking-header,
+.ranking-row {
+
+    display: grid;
+
+    grid-template-columns:
+        90px
+        1fr
+        260px;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   CABEÇALHO DA TABELA
+   ========================================================= */
+
+.ranking-header {
+
+    height: 40px;
+
+    padding:
+        0
+        22px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ed0000,
+            #bd0000
+        );
+
+    color: #fff;
+
+    font-size: 11px;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   LINHAS
+   ========================================================= */
+
+.ranking-row {
+
+    height: 36px;
+
+    padding:
+        0
+        22px;
+
+    border-bottom:
+        1px solid
+        #1d1d1d;
+
+    transition:
+        background .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+
+.ranking-row:last-child {
+    border-bottom: none;
+}
+
+
+.ranking-row:hover {
+
+    background:
+        rgba(
+            255,
+            0,
+            0,
+            .05
+        );
+}
+
+
+/* =========================================================
+   POSIÇÃO PADRÃO
+   ========================================================= */
+
+.ranking-row .position {
+
+    color: #999;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    transition:
+        color .2s ease,
+        text-shadow .2s ease;
+}
+
+
+/* =========================================================
+   NOME PADRÃO
+   ========================================================= */
+
+.ranking-name {
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    color: #eee;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PRODUÇÃO PADRÃO
+   ========================================================= */
+
+.ranking-value {
+
+    text-align: right;
+
+    color: #ff0000;
+
+    font-size: 13px;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   🥇 1º LUGAR — OURO
+   ========================================================= */
+
+.ranking-row.rank-first {
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 193, 7, .12),
+            rgba(255, 193, 7, .025),
+            transparent
+        );
+
+    border-left:
+        4px solid
+        #ffc107;
+
+    box-shadow:
+        inset 0 0 25px
+        rgba(255, 193, 7, .035);
+}
+
+
+.ranking-row.rank-first .position {
+
+    color: #ffc107;
+
+    font-size: 15px;
+
+    text-shadow:
+        0 0 10px
+        rgba(255, 193, 7, .45);
+}
+
+
+.ranking-row.rank-first .ranking-name {
+
+    color: #fff;
+
+    font-size: 13px;
+
+    font-weight: 900;
+}
+
+
+.ranking-row.rank-first .ranking-value {
+
+    color: #ff0000;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   🥈 2º LUGAR — PRATA
+   ========================================================= */
+
+.ranking-row.rank-second {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(210, 210, 210, .075),
+            rgba(210, 210, 210, .018),
+            transparent
+        );
+
+    border-left:
+        4px solid
+        #c9c9c9;
+}
+
+
+.ranking-row.rank-second .position {
+
+    color: #d5d5d5;
+
+    font-size: 14px;
+
+    text-shadow:
+        0 0 8px
+        rgba(255, 255, 255, .25);
+}
+
+
+.ranking-row.rank-second .ranking-name {
+
+    color: #f5f5f5;
+
+    font-weight: 800;
+}
+
+
+.ranking-row.rank-second .ranking-value {
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   🥉 3º LUGAR — BRONZE
+   ========================================================= */
+
+.ranking-row.rank-third {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(205, 127, 50, .09),
+            rgba(205, 127, 50, .018),
+            transparent
+        );
+
+    border-left:
+        4px solid
+        #cd7f32;
+}
+
+
+.ranking-row.rank-third .position {
+
+    color: #cd7f32;
+
+    font-size: 14px;
+
+    text-shadow:
+        0 0 8px
+        rgba(205, 127, 50, .30);
+}
+
+
+.ranking-row.rank-third .ranking-name {
+
+    color: #f1f1f1;
+
+    font-weight: 800;
+}
+
+
+.ranking-row.rank-third .ranking-value {
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   DESTAQUE SUTIL NO HOVER DOS 3 PRIMEIROS
+   ========================================================= */
+
+.ranking-row.rank-first:hover {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 193, 7, .18),
+            rgba(255, 193, 7, .035),
+            transparent
+        );
+}
+
+
+.ranking-row.rank-second:hover {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(210, 210, 210, .11),
+            rgba(210, 210, 210, .025),
+            transparent
+        );
+}
+
+
+.ranking-row.rank-third:hover {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(205, 127, 50, .13),
+            rgba(205, 127, 50, .025),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    padding:
+        8px
+        25px
+        0;
+
+    color: #666;
+
+    font-size: 9px;
+}
+
+
+footer strong {
+
+    color: #ff0000;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO
+   ========================================================= */
+
+.screen-navigation {
+
+    position: fixed;
+
+    bottom: 18px;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    min-width: 110px;
+
+    height: 38px;
+
+    padding:
+        0
+        14px;
+
+    color: #fff;
+
+    background:
+        rgba(
+            8,
+            8,
+            8,
+            .96
+        );
+
+    border:
+        1px solid
+        #444;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: .8px;
+
+    box-shadow:
+        0 5px 20px
+        rgba(
+            0,
+            0,
+            0,
+            .55
+        );
+
+    transition:
+        all .2s ease;
+}
+
+
+.screen-navigation b {
+
+    color: #ff0000;
+
+    font-size: 20px;
+
+    line-height: 1;
+}
+
+
+.screen-navigation:hover {
+
+    border-color:
+        #ff0000;
+
+    background:
+        rgba(
+            255,
+            0,
+            0,
+            .12
+        );
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   BOTÃO VOLTAR
+   ========================================================= */
+
+.screen-navigation-back {
+    left: 28px;
+}
+
+
+/* =========================================================
+   BOTÃO AVANÇAR
+   ========================================================= */
+
+.screen-navigation-next {
+    right: 28px;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (
+    max-width: 1100px
+) {
+
+    .annual-dashboard {
+
+        padding:
+            20px;
+
+    }
+
+
+    .annual-header {
+
+        grid-template-columns:
+            160px
+            1fr
+            160px;
+
+    }
+
+
+    .annual-title {
+
+        font-size: 40px;
+
+    }
+
+
+    .annual-highlight {
+
+        width: 85%;
+
+    }
+
+
+    .annual-ranking {
+
+        width: 100%;
+
+    }
+
+
+    .ranking-header,
+    .ranking-row {
+
+        grid-template-columns:
+            70px
+            1fr
+            200px;
+
+    }
+
+}
+
+
+/* =========================================================
+   TELAS MENORES
+   ========================================================= */
+
+@media (
+    max-height: 800px
+) {
+
+    .annual-dashboard {
+
+        padding-top: 18px;
+
+        padding-bottom: 12px;
+
+    }
+
+
+    .annual-title {
+
+        font-size: 42px;
+
+    }
+
+
+    .annual-title p {
+
+        margin-top: 9px;
+
+        font-size: 11px;
+
+    }
+
+
+    .annual-highlight {
+
+        min-height: 100px;
+
+        margin-top: 18px;
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .highlight-position {
+
+        width: 58px;
+
+        height: 58px;
+
+        font-size: 21px;
+
+    }
+
+
+    .highlight-content span {
+
+        font-size: 18px;
+
+    }
+
+
+    .highlight-content strong {
+
+        font-size: 20px;
+
+    }
+
+
+    .ranking-header {
+
+        height: 36px;
+
+    }
+
+
+    .ranking-row {
+
+        height: 34px;
+
+    }
+
+
+    footer {
+
+        height: 30px;
+
+    }
+
+}
