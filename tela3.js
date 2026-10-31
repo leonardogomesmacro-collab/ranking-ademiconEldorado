@@ -9,7 +9,7 @@
 // =========================================================
 
 const API_URL =
-    "https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnQ8II7tllz46fsWYKZOYUhSnBYwZGDLpXxBvzIONnqjk4v5SzTNQnXFpzOM1hGbYZEKACQ2U5PZpGX2JgaZEV6bG-wqRgWKjvZJu_XOVVTuD0vkiS8JtL8KE282iMkEQh2dipsfIfa1AA-ht3zM5wvQ96twLPh2zzr2fyCg1a6_FRX8kO7O_hpwyJVq4iu5xNatBM8q4cgOATpQhg65pkVI4rQXy5NtOzgMNc64mh8aaZC08-4UyiZlTiUmc3kesBldBqQnnhrR9lOhAZp-kn-k9d2wVQ&lib=MoBXD9l-nLg710h1ptpN6HVfREsBTZvRn";
+    "https://script.google.com/macros/s/AKfycbxvRDqmECbpgdjMxwDGPSVAw2SgdBWtyXJxzmD-QWJCklFznz_pANTYvT71p1nc3OWi/exec";
 
 
 // =========================================================
