@@ -1,463 +1,350 @@
 /* =========================================================
-   TELA 2 — ADEMICON
-   DESTAQUES DA SEMANA
-   ========================================================= */
-
-
-/* =========================================================
-   RESET
+   TELA 02 — ADEMICON
+   TOP 3 CRÉDITO E CONTRATOS
    ========================================================= */
 
 * {
-
     box-sizing: border-box;
-
     margin: 0;
-
     padding: 0;
-
 }
-
 
 html,
 body {
-
     width: 100%;
-
-    height: 100%;
-
-    margin: 0;
-
-    padding: 0;
-
-    overflow: hidden;
-
+    min-height: 100%;
 }
 
-
 body {
+    min-height: 100vh;
 
     background:
-
         radial-gradient(
             circle at 18% 45%,
             rgba(255, 0, 0, .075),
             transparent 32%
         ),
-
         #050505;
 
     color: #fff;
 
-    font-family:
-        'Inter',
-        Arial,
-        sans-serif;
-
+    font-family: Inter, Arial, sans-serif;
 }
-
 
 /* =========================================================
    TELA
    ========================================================= */
 
 .screen {
-
     width: 100%;
-
-    height: 100vh;
-
-    max-width: 1600px;
+    max-width: 1800px;
+    min-height: 100vh;
 
     margin: 0 auto;
 
-    padding:
-        28px
-        42px
-        18px;
+    padding: 24px 42px 18px;
 
     display: flex;
-
     flex-direction: column;
-
-    position: relative;
-
 }
 
-
 /* =========================================================
-   HEADER
+   CABEÇALHO
    ========================================================= */
 
 .header {
-
     display: flex;
-
     align-items: flex-start;
-
     justify-content: space-between;
-
     flex-shrink: 0;
-
 }
-
 
 .brand-mark {
-
     font-size: 30px;
-
     line-height: 1;
-
     font-weight: 900;
-
     letter-spacing: -1.5px;
-
 }
-
 
 .location {
-
     color: #999;
-
     font-size: 12px;
-
     margin-top: 5px;
-
 }
 
-
 .status {
-
     display: flex;
-
     align-items: center;
-
     gap: 8px;
 
     color: #aaa;
-
     font-size: 11px;
-
     margin-top: 5px;
-
 }
 
-
 .status-dot {
-
     width: 7px;
-
     height: 7px;
 
     background: #00ff66;
-
     border-radius: 50%;
 
-    box-shadow:
-        0 0 10px #00ff66;
-
+    box-shadow: 0 0 10px #00ff66;
 }
-
 
 /* =========================================================
    TÍTULO
    ========================================================= */
 
 .title-section {
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     gap: 18px;
 
-    margin-top: 24px;
-
+    margin-top: 18px;
     flex-shrink: 0;
-
 }
 
-
 .title-line {
-
     width: 8px;
-
-    height: 82px;
+    height: 72px;
 
     background: #ff0000;
 
     transform: skewX(-14deg);
 
-    box-shadow:
-        0 0 18px
-        rgba(255, 0, 0, .25);
-
+    box-shadow: 0 0 18px rgba(255, 0, 0, .25);
 }
-
 
 .title-section h1 {
-
-    font-size: 52px;
-
+    font-size: clamp(34px, 3.5vw, 52px);
     line-height: .95;
-
     font-weight: 900;
-
     letter-spacing: -2.5px;
-
 }
-
 
 .title-section h1 span {
-
     color: #ff0000;
-
 }
-
 
 .title-section p {
-
-    margin-top: 10px;
-
+    margin-top: 9px;
     color: #ddd;
-
-    font-size: 15px;
-
+    font-size: 14px;
     letter-spacing: .3px;
-
 }
-
 
 .title-section p strong {
-
     color: #fff;
-
     font-weight: 800;
-
 }
 
-
 /* =========================================================
-   HIGHLIGHTS
+   PAINÉIS
    ========================================================= */
 
 .highlights {
-
     flex: 1;
 
-    min-height: 0;
-
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 20px;
 
-    gap: 28px;
-
-    align-items: stretch;
-
-    margin-top: 22px;
-
+    min-height: 0;
 }
 
-
-/* =========================================================
-   CARD
-   ========================================================= */
-
 .highlight-card {
-
     position: relative;
 
-    min-height: 0;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 22px 20px 18px;
 
     background:
-
         linear-gradient(
             145deg,
             #151515,
             #080808
         );
 
-    border:
-        1px solid
-        #292929;
-
+    border: 1px solid #292929;
     border-radius: 18px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: flex-start;
-
-    padding:
-        25px
-        35px
-        30px;
 
     overflow: hidden;
 
     box-shadow:
-        inset 0 1px 0
-        rgba(255,255,255,.025);
-
+        inset 0 1px 0 rgba(255,255,255,.025);
 }
-
 
 .highlight-card.semana {
-
-    border-color:
-        rgba(255, 0, 0, .70);
+    border-color: rgba(255, 0, 0, .70);
 
     box-shadow:
-
-        0 0 35px
-        rgba(255, 0, 0, .10),
-
-        inset 0 1px 0
-        rgba(255,255,255,.025);
-
+        0 0 35px rgba(255, 0, 0, .10),
+        inset 0 1px 0 rgba(255,255,255,.025);
 }
 
-
 .highlight-card::after {
-
     content: "";
 
     position: absolute;
 
     width: 420px;
-
     height: 420px;
 
     border-radius: 50%;
 
     background:
-
         radial-gradient(
             circle,
-            rgba(255, 0, 0, .10),
+            rgba(255, 0, 0, .08),
             transparent 68%
         );
 
-    bottom: -260px;
-
+    bottom: -300px;
     left: 50%;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     pointer-events: none;
-
 }
 
-
 /* =========================================================
-   CABEÇALHO DO CARD
+   CABEÇALHO DOS PAINÉIS
    ========================================================= */
 
 .card-header {
-
     width: 100%;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    gap: 10px;
+    gap: 9px;
 
     flex-shrink: 0;
 
+    position: relative;
+    z-index: 2;
 }
-
 
 .slash {
-
     color: #ff0000;
-
-    font-size: 40px;
-
+    font-size: 36px;
     font-weight: 900;
-
     line-height: .7;
 
-    transform:
-        skewX(-12deg);
-
+    transform: skewX(-12deg);
 }
-
 
 .card-header h2 {
-
-    font-size: 25px;
-
+    font-size: clamp(17px, 1.5vw, 24px);
     font-weight: 900;
-
-    letter-spacing: -.7px;
-
+    letter-spacing: -.5px;
+    text-align: center;
 }
 
-
 /* =========================================================
-   POSIÇÃO
+   LISTA DO PÓDIO
    ========================================================= */
 
-.position {
+.podium-list {
+    flex: 1;
 
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 
     align-items: center;
 
-    justify-content: center;
+    gap: 10px;
 
-    margin-top: 17px;
+    margin-top: 16px;
 
-    padding:
-        8px
-        20px;
-
-    background: #ff0000;
-
-    border-radius: 8px;
-
-    font-size: 19px;
-
-    font-weight: 900;
-
-    box-shadow:
-        0 0 20px
-        rgba(255,0,0,.25);
-
+    position: relative;
     z-index: 2;
-
 }
 
+/* =========================================================
+   PARTICIPANTE
+   ========================================================= */
+
+.podium-item {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 12px 5px;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,.025);
+
+    border: 1px solid rgba(255,255,255,.04);
+}
+
+.podium-item.first {
+    background: rgba(255,0,0,.055);
+    border-color: rgba(255,0,0,.35);
+
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.podium-position {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 48px;
+    height: 34px;
+
+    padding: 0 10px;
+
+    margin-bottom: 12px;
+
+    background: #ff0000;
+    color: #fff;
+
+    border-radius: 7px;
+
+    font-size: 16px;
+    font-weight: 900;
+
+    box-shadow: 0 0 18px rgba(255,0,0,.20);
+}
+
+.podium-item.second .podium-position {
+    background: #777;
+}
+
+.podium-item.third .podium-position {
+    background: #9a633c;
+}
 
 /* =========================================================
-   FOTO
+   FOTOS
    ========================================================= */
 
 .photo-wrapper {
+    width: clamp(90px, 11vw, 155px);
+    height: clamp(90px, 11vw, 155px);
 
-    width: 245px;
-
-    height: 245px;
-
-    margin-top: 17px;
+    padding: 4px;
 
     border-radius: 50%;
 
-    padding: 5px;
-
     background:
-
         linear-gradient(
             145deg,
             #ff0000,
@@ -465,577 +352,399 @@ body {
         );
 
     box-shadow:
-
-        0 0 35px
-        rgba(255,0,0,.20);
+        0 0 25px rgba(255,0,0,.18);
 
     flex-shrink: 0;
-
-    z-index: 2;
-
 }
 
+.podium-item.first .photo-wrapper {
+    width: clamp(105px, 12vw, 175px);
+    height: clamp(105px, 12vw, 175px);
+}
 
 .photo-wrapper img {
-
-    width: 100%;
-
-    height: 100%;
-
     display: block;
 
-    object-fit: cover;
+    width: 100%;
+    height: 100%;
 
+    object-fit: cover;
     object-position: center;
+
+    border-radius: 50%;
+    border: 3px solid #101010;
+
+    background: #222;
+}
+
+.photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
 
     border-radius: 50%;
 
     background: #222;
+    color: #888;
 
-    border:
-        4px solid
-        #101010;
-
+    font-size: 11px;
+    font-weight: 700;
 }
-
 
 /* =========================================================
    NOME
    ========================================================= */
 
-.highlight-card h3 {
+.podium-name {
+    width: 100%;
+    max-width: 100%;
 
-    max-width: 90%;
+    min-height: 42px;
 
-    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    text-align: center;
+    margin-top: 12px;
 
-    font-size: 27px;
+    color: #fff;
 
-    line-height: 1.08;
+    font-size: clamp(11px, 1.05vw, 16px);
+    line-height: 1.15;
 
     font-weight: 900;
-
     text-transform: uppercase;
 
-    letter-spacing: -.5px;
-
-    z-index: 2;
-
+    overflow-wrap: anywhere;
 }
 
-
 /* =========================================================
-   VALOR PRINCIPAL
+   RESULTADO
    ========================================================= */
 
-.main-value {
+.podium-value {
+    width: 100%;
 
-    margin-top: 14px;
+    margin-top: 8px;
 
     color: #ff0000;
 
-    font-size: 36px;
-
-    line-height: 1;
+    font-size: clamp(13px, 1.3vw, 20px);
+    line-height: 1.1;
 
     font-weight: 900;
-
     text-align: center;
 
-    letter-spacing: -.8px;
-
-    z-index: 2;
-
+    overflow-wrap: anywhere;
 }
 
+.podium-item.first .podium-value {
+    font-size: clamp(15px, 1.55vw, 24px);
+}
 
-/* =========================================================
-   PARABÉNS
-   ========================================================= */
-
-.congratulations {
-
-    margin-top: 17px;
+.podium-congratulations {
+    margin-top: 8px;
 
     color: #ff0000;
 
-    font-size: 22px;
-
-    line-height: 1;
-
+    font-size: 11px;
     font-weight: 900;
-
-    letter-spacing: 1.5px;
-
-    text-align: center;
-
-    text-transform: uppercase;
-
-    text-shadow:
-        0 0 14px
-        rgba(255,0,0,.25);
-
-    z-index: 2;
-
+    letter-spacing: 1px;
 }
-
 
 /* =========================================================
    DESCRIÇÃO
    ========================================================= */
 
-.description {
+.card-description {
+    position: relative;
+    z-index: 2;
 
     margin-top: 10px;
 
-    color: #d0d0d0;
+    color: #bbb;
 
-    font-size: 15px;
-
+    font-size: 11px;
     line-height: 1.2;
 
     font-weight: 800;
-
     letter-spacing: 1px;
 
     text-align: center;
-
-    text-transform: uppercase;
-
-    z-index: 2;
-
 }
 
+/* =========================================================
+   CARREGAMENTO E VAZIO
+   ========================================================= */
+
+.loading,
+.empty-ranking {
+    grid-column: 1 / -1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 150px;
+
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+}
 
 /* =========================================================
-   FOOTER
+   RODAPÉ
    ========================================================= */
 
 footer {
-
     flex-shrink: 0;
 
     display: flex;
-
     align-items: center;
+    flex-wrap: wrap;
 
     gap: 12px;
 
-    margin-top: 14px;
-
+    margin-top: 12px;
     padding-left: 10px;
 
-    border-left:
-        3px solid
-        #ff0000;
+    border-left: 3px solid #ff0000;
 
     color: #777;
-
     font-size: 10px;
 
     min-height: 20px;
-
 }
-
 
 footer strong {
-
     color: #ff0000;
-
     font-weight: 900;
-
 }
 
-
 /* =========================================================
-   NAVEGAÇÃO ENTRE TELAS
+   NAVEGAÇÃO
    ========================================================= */
 
 .screen-navigation {
-
-    position: fixed;
-
-    right: 26px;
-
-    bottom: 20px;
-
-    z-index: 99999;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 10px;
-
-    min-width: 105px;
-
-    padding:
-        10px
-        16px;
-
-    color: #fff;
-
-    background:
-        rgba(
-            8,
-            8,
-            8,
-            .92
-        );
-
-    border:
-        1px solid
-        #333;
-
-    border-radius: 8px;
-
-    text-decoration: none;
-
-    font-size: 10px;
-
-    font-weight: 900;
-
-    letter-spacing: .8px;
-
-    backdrop-filter:
-        blur(10px);
-
-    -webkit-backdrop-filter:
-        blur(10px);
-
-    box-shadow:
-        0 5px 20px
-        rgba(
-            0,
-            0,
-            0,
-            .45
-        );
-
-    transition:
-        all .2s ease;
-
-}
-
-
-.screen-navigation b {
-
-    color: #ff0000;
-
-    font-size: 18px;
-
-    line-height: 1;
-
-}
-
-
-.screen-navigation:hover {
-
-    border-color:
-        #ff0000;
-
-    background:
-        rgba(
-            255,
-            0,
-            0,
-            .10
-        );
-
-    box-shadow:
-        0 0 20px
-        rgba(
-            255,
-            0,
-            0,
-            .20
-        );
-
-    transform:
-        translateY(-2px);
-
-}
-
-
-/* =========================================================
-   RESPONSIVO
-   ========================================================= */
-
-@media (max-width: 1200px) {
-
-    .screen {
-
-        padding:
-            22px
-            30px
-            14px;
-
-    }
-
-
-    .title-section h1 {
-
-        font-size: 44px;
-
-    }
-
-
-    .photo-wrapper {
-
-        width: 205px;
-
-        height: 205px;
-
-    }
-
-
-    .highlight-card h3 {
-
-        font-size: 23px;
-
-    }
-
-
-    .main-value {
-
-        font-size: 31px;
-
-    }
-
-
-    .screen-navigation {
-
-        right: 16px;
-
-        bottom: 14px;
-
-    }
-
-}
-
-
-@media (max-width: 900px) {
-
-    html,
-    body {
-
-        overflow: auto;
-
-    }
-
-
-    .screen {
-
-        height: auto;
-
-        min-height: 100vh;
-
-    }
-
-
-    .highlights {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .highlight-card {
-
-        min-height: 600px;
-
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    .screen {
-
-        padding:
-            18px;
-
-    }
-
-
-    .title-section {
-
-        justify-content: flex-start;
-
-    }
-
-
-    .title-section h1 {
-
-        font-size: 34px;
-
-    }
-
-
-    .title-line {
-
-        height: 65px;
-
-    }
-
-
-    .photo-wrapper {
-
-        width: 180px;
-
-        height: 180px;
-
-    }
-
-
-    .highlight-card h3 {
-
-        font-size: 20px;
-
-    }
-
-
-    .main-value {
-
-        font-size: 27px;
-
-    }
-
-
-    .congratulations {
-
-        font-size: 19px;
-
-    }
-
-
-    .description {
-
-        font-size: 12px;
-
-    }
-
-}
-
-/* =========================================================
-   NAVEGAÇÃO ENTRE TELAS
-   ========================================================= */
-
-.screen-navigation {
-
     position: fixed;
 
     right: 28px;
-
     bottom: 18px;
 
     z-index: 99999;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     gap: 10px;
 
     min-width: 115px;
-
     height: 38px;
 
-    padding:
-        0
-        16px;
+    padding: 0 16px;
 
     color: #fff;
 
-    background:
-        rgba(
-            8,
-            8,
-            8,
-            .96
-        );
+    background: rgba(8,8,8,.96);
 
-    border:
-        1px solid
-        #444;
-
+    border: 1px solid #444;
     border-radius: 8px;
 
     text-decoration: none;
 
     font-size: 11px;
-
     font-weight: 900;
-
     letter-spacing: .8px;
 
-    box-shadow:
-        0 5px 20px
-        rgba(
-            0,
-            0,
-            0,
-            .55
-        );
+    box-shadow: 0 5px 20px rgba(0,0,0,.55);
 
-    transition:
-        all .2s ease;
-
+    transition: all .2s ease;
 }
-
 
 .screen-navigation b {
-
     color: #ff0000;
-
     font-size: 20px;
-
     line-height: 1;
-
 }
-
 
 .screen-navigation:hover {
+    border-color: #ff0000;
 
-    color: #fff;
+    background: rgba(255,0,0,.12);
 
-    border-color:
-        #ff0000;
+    box-shadow: 0 0 20px rgba(255,0,0,.25);
 
-    background:
-        rgba(
-            255,
-            0,
-            0,
-            .12
-        );
+    transform: translateY(-2px);
+}
 
-    box-shadow:
-        0 0 20px
-        rgba(
-            255,
-            0,
-            0,
-            .25
-        );
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
 
-    transform:
-        translateY(-2px);
+@media (max-width: 1100px) {
+
+    .screen {
+        padding: 20px 24px 16px;
+    }
+
+    .highlights {
+        gap: 14px;
+    }
+
+    .highlight-card {
+        padding: 20px 12px 16px;
+    }
+
+    .podium-list {
+        gap: 6px;
+    }
+
+    .podium-item {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
 
 }
 
+@media (max-width: 800px) {
 
-.screen-navigation-back {
+    .screen {
+        min-height: 100vh;
+        height: auto;
+    }
 
-    right: 28px;
+    .highlights {
+        grid-template-columns: 1fr;
+    }
 
-    bottom: 18px;
+    .highlight-card {
+        min-height: 440px;
+    }
+
+    .photo-wrapper {
+        width: 125px;
+        height: 125px;
+    }
+
+    .podium-item.first .photo-wrapper {
+        width: 145px;
+        height: 145px;
+    }
+
+    .podium-name {
+        font-size: 14px;
+    }
+
+    .podium-value {
+        font-size: 17px;
+    }
+
+    .podium-item.first .podium-value {
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .screen {
+        padding: 18px 12px 70px;
+    }
+
+    .brand-mark {
+        font-size: 24px;
+    }
+
+    .location {
+        font-size: 10px;
+    }
+
+    .status {
+        font-size: 9px;
+    }
+
+    .title-section {
+        justify-content: flex-start;
+        gap: 12px;
+        margin-top: 28px;
+    }
+
+    .title-section h1 {
+        font-size: 32px;
+        letter-spacing: -1.5px;
+    }
+
+    .title-section p {
+        font-size: 11px;
+    }
+
+    .title-line {
+        height: 60px;
+    }
+
+    .highlight-card {
+        min-height: 390px;
+        padding: 18px 7px 15px;
+    }
+
+    .card-header h2 {
+        font-size: 17px;
+    }
+
+    .podium-list {
+        gap: 4px;
+    }
+
+    .podium-position {
+        min-width: 38px;
+        height: 29px;
+        font-size: 13px;
+        margin-bottom: 9px;
+    }
+
+    .photo-wrapper {
+        width: 88px;
+        height: 88px;
+    }
+
+    .podium-item.first .photo-wrapper {
+        width: 105px;
+        height: 105px;
+    }
+
+    .podium-name {
+        font-size: 10px;
+        min-height: 40px;
+    }
+
+    .podium-value {
+        font-size: 12px;
+    }
+
+    .podium-item.first .podium-value {
+        font-size: 14px;
+    }
+
+    .podium-congratulations {
+        font-size: 9px;
+    }
+
+    .card-description {
+        font-size: 9px;
+    }
+
+    footer {
+        font-size: 9px;
+        gap: 6px;
+    }
+
+    .screen-navigation {
+        right: 12px;
+        bottom: 12px;
+    }
 
 }
