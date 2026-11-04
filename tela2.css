@@ -1,23 +1,317 @@
 
 /* =========================================================
-   NOVO PÓDIO — 1º NO CENTRO, 2º À ESQUERDA E 3º À DIREITA
-   APLICAÇÃO NOS DOIS RANKINGS
+   ADEMICON — TELA 02
+   RANKING TOP 3 — CRÉDITO E CONTRATOS
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 18% 45%,
+            rgba(255, 0, 0, .075),
+            transparent 32%
+        ),
+        #050505;
+
+    color: #fff;
+    font-family: Inter, Arial, sans-serif;
+}
+
+/* =========================================================
+   TELA PRINCIPAL
+   ========================================================= */
+
+.screen {
+    width: 100%;
+    max-width: 1800px;
+    min-height: 100vh;
+
+    margin: 0 auto;
+    padding: 24px 42px 18px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.brand-mark {
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+}
+
+.location {
+    color: #999;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #aaa;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    background: #00ff66;
+    border-radius: 50%;
+
+    box-shadow: 0 0 10px #00ff66;
+}
+
+/* =========================================================
+   TÍTULO PRINCIPAL
+   ========================================================= */
+
+.title-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    margin-top: 18px;
+    flex-shrink: 0;
+}
+
+.title-line {
+    width: 8px;
+    height: 72px;
+
+    background: #ff0000;
+
+    transform: skewX(-14deg);
+
+    box-shadow: 0 0 18px rgba(255, 0, 0, .25);
+}
+
+.title-section h1 {
+    font-size: clamp(34px, 3.5vw, 52px);
+    line-height: .95;
+    font-weight: 900;
+    letter-spacing: -2.5px;
+}
+
+.title-section h1 span {
+    color: #ff0000;
+}
+
+.title-section p {
+    margin-top: 9px;
+
+    color: #ddd;
+    font-size: 14px;
+    letter-spacing: .3px;
+}
+
+.title-section p strong {
+    color: #fff;
+    font-weight: 800;
+}
+
+/* =========================================================
+   PAINÉIS DOS RANKINGS
+   ========================================================= */
+
+.highlights {
+    flex: 1;
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.highlight-card {
+    position: relative;
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 22px 20px 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #080808
+        );
+
+    border: 1px solid #292929;
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.highlight-card.semana {
+    border-color: rgba(255, 0, 0, .70);
+
+    box-shadow:
+        0 0 35px rgba(255, 0, 0, .10),
+        inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.highlight-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 0, 0, .08),
+            transparent 68%
+        );
+
+    bottom: -300px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    pointer-events: none;
+}
+
+/* =========================================================
+   CABEÇALHO DOS RANKINGS
+   ========================================================= */
+
+.card-header {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    flex-shrink: 0;
+
+    position: relative;
+    z-index: 2;
+}
+
+.slash {
+    color: #ff0000;
+
+    font-size: 36px;
+    font-weight: 900;
+    line-height: .7;
+
+    transform: skewX(-12deg);
+}
+
+.card-header h2 {
+    font-size: clamp(17px, 1.5vw, 24px);
+    font-weight: 900;
+    letter-spacing: -.5px;
+    text-align: center;
+}
+
+/* =========================================================
+   PÓDIO — ORGANIZAÇÃO DOS TRÊS COLOCADOS
+
+   ESQUERDA: 2º LUGAR
+   CENTRO:   1º LUGAR
+   DIREITA:  3º LUGAR
    ========================================================= */
 
 .podium-list {
+    flex: 1;
+    min-height: 0;
+
     display: grid;
 
-    grid-template-columns: 1fr 1.15fr 1fr;
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1.15fr)
+        minmax(0, 1fr);
 
     grid-template-areas:
         "second first third";
 
     align-items: center;
+    justify-items: stretch;
 
     gap: 10px;
+
+    margin-top: 16px;
+
+    position: relative;
+    z-index: 2;
 }
 
-/* PRIMEIRO LUGAR — CENTRO E MAIS ALTO */
+/* =========================================================
+   ESTILO BASE DOS PARTICIPANTES
+   ========================================================= */
+
+.podium-item {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 12px 5px;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,.025);
+
+    border: 1px solid rgba(255,255,255,.06);
+}
+
+/* =========================================================
+   1º LUGAR — CENTRO E MAIS ALTO
+   ========================================================= */
 
 .podium-item.first {
     grid-area: first;
@@ -25,26 +319,29 @@
     position: relative;
     z-index: 3;
 
-    transform: translateY(-20px);
+    transform: translateY(-24px);
 
     min-height: 370px;
 
     padding: 20px 8px;
 
-    border: 1px solid #ff0000;
-
     background:
         linear-gradient(
             145deg,
-            rgba(255,0,0,.13),
-            rgba(20,10,10,.95)
+            rgba(255,0,0,.16),
+            rgba(20,8,8,.98)
         );
 
+    border: 1px solid #ff0000;
+
     box-shadow:
-        0 0 25px rgba(255,0,0,.18);
+        0 0 25px rgba(255,0,0,.20),
+        inset 0 0 20px rgba(255,0,0,.035);
 }
 
-/* SEGUNDO LUGAR — ESQUERDA */
+/* =========================================================
+   2º LUGAR — ESQUERDA
+   ========================================================= */
 
 .podium-item.second {
     grid-area: second;
@@ -52,7 +349,7 @@
     position: relative;
     z-index: 2;
 
-    transform: translateY(12px);
+    transform: translateY(15px);
 
     min-height: 320px;
 
@@ -66,7 +363,9 @@
     border: 1px solid #777;
 }
 
-/* TERCEIRO LUGAR — DIREITA */
+/* =========================================================
+   3º LUGAR — DIREITA
+   ========================================================= */
 
 .podium-item.third {
     grid-area: third;
@@ -74,7 +373,7 @@
     position: relative;
     z-index: 2;
 
-    transform: translateY(12px);
+    transform: translateY(15px);
 
     min-height: 320px;
 
@@ -88,55 +387,450 @@
     border: 1px solid #9a633c;
 }
 
-/* FOTO DO PRIMEIRO COLOCADO */
+/* =========================================================
+   MEDALHAS / POSIÇÕES
+   ========================================================= */
 
-.podium-item.first .photo-wrapper {
-    width: clamp(125px, 12vw, 180px);
-    height: clamp(125px, 12vw, 180px);
+.podium-position {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 48px;
+    height: 34px;
+
+    padding: 0 10px;
+
+    margin-bottom: 12px;
+
+    background: #ff0000;
+    color: #fff;
+
+    border-radius: 7px;
+
+    font-size: 16px;
+    font-weight: 900;
+
+    box-shadow: 0 0 18px rgba(255,0,0,.20);
 }
 
-/* FOTOS DOS SEGUNDO E TERCEIRO */
+.podium-item.second .podium-position {
+    background: #777;
+}
+
+.podium-item.third .podium-position {
+    background: #9a633c;
+}
+
+/* =========================================================
+   FOTOS
+   ========================================================= */
+
+.photo-wrapper {
+    width: 125px;
+    height: 125px;
+
+    padding: 4px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff0000,
+            #700000
+        );
+
+    box-shadow:
+        0 0 25px rgba(255,0,0,.18);
+
+    flex-shrink: 0;
+}
+
+.podium-item.first .photo-wrapper {
+    width: 165px;
+    height: 165px;
+}
 
 .podium-item.second .photo-wrapper,
 .podium-item.third .photo-wrapper {
-    width: clamp(100px, 10vw, 145px);
-    height: clamp(100px, 10vw, 145px);
+    width: 125px;
+    height: 125px;
 }
 
-/* DESTAQUE DO RESULTADO DO PRIMEIRO */
+.photo-wrapper img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 50%;
+    border: 3px solid #101010;
+
+    background: #222;
+}
+
+.photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    background: #222;
+    color: #888;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* =========================================================
+   NOMES
+   ========================================================= */
+
+.podium-name {
+    width: 100%;
+    max-width: 100%;
+
+    min-height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 12px;
+
+    color: #fff;
+
+    font-size: clamp(11px, 1.05vw, 16px);
+    line-height: 1.15;
+
+    font-weight: 900;
+    text-transform: uppercase;
+
+    overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   RESULTADOS
+   ========================================================= */
+
+.podium-value {
+    width: 100%;
+
+    margin-top: 8px;
+
+    color: #ff0000;
+
+    font-size: clamp(13px, 1.3vw, 20px);
+    line-height: 1.1;
+
+    font-weight: 900;
+    text-align: center;
+
+    overflow-wrap: anywhere;
+}
 
 .podium-item.first .podium-value {
     font-size: clamp(17px, 1.5vw, 25px);
 }
 
-/* AJUSTE PARA TELAS MENORES */
+/* =========================================================
+   PARABÉNS
+   ========================================================= */
 
-@media (max-width: 800px) {
+.podium-congratulations {
+    margin-top: 8px;
+
+    color: #ff0000;
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+/* =========================================================
+   DESCRIÇÃO DOS PAINÉIS
+   ========================================================= */
+
+.card-description {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 10px;
+
+    color: #bbb;
+
+    font-size: 11px;
+    line-height: 1.2;
+
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    text-align: center;
+}
+
+/* =========================================================
+   CARREGAMENTO E RANKING VAZIO
+   ========================================================= */
+
+.loading,
+.empty-ranking {
+    grid-column: 1 / -1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 150px;
+
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+footer {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 12px;
+    padding-left: 10px;
+
+    border-left: 3px solid #ff0000;
+
+    color: #777;
+    font-size: 10px;
+
+    min-height: 20px;
+}
+
+footer strong {
+    color: #ff0000;
+    font-weight: 900;
+}
+
+/* =========================================================
+   BOTÃO DE NAVEGAÇÃO
+   ========================================================= */
+
+.screen-navigation {
+    position: fixed;
+
+    right: 28px;
+    bottom: 18px;
+
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    min-width: 115px;
+    height: 38px;
+
+    padding: 0 16px;
+
+    color: #fff;
+
+    background: rgba(8,8,8,.96);
+
+    border: 1px solid #444;
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .8px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,.55);
+
+    transition: all .2s ease;
+}
+
+.screen-navigation b {
+    color: #ff0000;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.screen-navigation:hover {
+    border-color: #ff0000;
+
+    background: rgba(255,0,0,.12);
+
+    box-shadow: 0 0 20px rgba(255,0,0,.25);
+
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   RESPONSIVIDADE — NOTEBOOKS E TELAS MÉDIAS
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .screen {
+        padding: 20px 24px 16px;
+    }
+
+    .highlights {
+        gap: 14px;
+    }
+
+    .highlight-card {
+        padding: 20px 10px 16px;
+    }
 
     .podium-list {
-        grid-template-columns: 1fr 1.15fr 1fr;
-        grid-template-areas: "second first third";
-        gap: 5px;
+        gap: 6px;
     }
 
-    .podium-item.first {
-        transform: translateY(-12px);
-        min-height: 300px;
+    .podium-item {
+        padding-left: 3px;
+        padding-right: 3px;
     }
 
-    .podium-item.second,
-    .podium-item.third {
-        transform: translateY(8px);
-        min-height: 260px;
+    .podium-item.first .photo-wrapper {
+        width: 135px;
+        height: 135px;
+    }
+
+    .podium-item.second .photo-wrapper,
+    .podium-item.third .photo-wrapper {
+        width: 105px;
+        height: 105px;
     }
 
 }
 
+/* =========================================================
+   RESPONSIVIDADE — TABLETS
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .screen {
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .highlight-card {
+        min-height: 440px;
+    }
+
+    .podium-item.first {
+        transform: translateY(-15px);
+        min-height: 310px;
+    }
+
+    .podium-item.second,
+    .podium-item.third {
+        transform: translateY(10px);
+        min-height: 270px;
+    }
+
+    .podium-item.first .photo-wrapper {
+        width: 125px;
+        height: 125px;
+    }
+
+    .podium-item.second .photo-wrapper,
+    .podium-item.third .photo-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+
+    .podium-name {
+        font-size: 13px;
+    }
+
+    .podium-value {
+        font-size: 15px;
+    }
+
+}
+
+/* =========================================================
+   RESPONSIVIDADE — CELULARES
+   ========================================================= */
+
 @media (max-width: 520px) {
 
+    .screen {
+        padding: 18px 12px 70px;
+    }
+
+    .brand-mark {
+        font-size: 24px;
+    }
+
+    .location {
+        font-size: 10px;
+    }
+
+    .status {
+        font-size: 9px;
+    }
+
+    .title-section {
+        justify-content: flex-start;
+        gap: 12px;
+        margin-top: 28px;
+    }
+
+    .title-section h1 {
+        font-size: 32px;
+        letter-spacing: -1.5px;
+    }
+
+    .title-section p {
+        font-size: 11px;
+    }
+
+    .title-line {
+        height: 60px;
+    }
+
+    .highlight-card {
+        min-height: 370px;
+        padding: 18px 6px 15px;
+    }
+
+    .card-header h2 {
+        font-size: 16px;
+    }
+
     .podium-list {
-        grid-template-columns: 1fr 1.15fr 1fr;
-        grid-template-areas: "second first third";
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1.15fr)
+            minmax(0, 1fr);
+
+        grid-template-areas:
+            "second first third";
+
         gap: 3px;
     }
 
@@ -153,6 +847,13 @@
         padding: 8px 3px;
     }
 
+    .podium-position {
+        min-width: 35px;
+        height: 27px;
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
     .podium-item.first .photo-wrapper {
         width: 85px;
         height: 85px;
@@ -162,6 +863,37 @@
     .podium-item.third .photo-wrapper {
         width: 65px;
         height: 65px;
+    }
+
+    .podium-name {
+        font-size: 9px;
+        min-height: 38px;
+    }
+
+    .podium-value {
+        font-size: 11px;
+    }
+
+    .podium-item.first .podium-value {
+        font-size: 13px;
+    }
+
+    .podium-congratulations {
+        font-size: 8px;
+    }
+
+    .card-description {
+        font-size: 9px;
+    }
+
+    footer {
+        font-size: 9px;
+        gap: 6px;
+    }
+
+    .screen-navigation {
+        right: 12px;
+        bottom: 12px;
     }
 
 }
