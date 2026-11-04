@@ -2,6 +2,7 @@
 /* =========================================================
    ADEMICON — TELA 02
    RANKING TOP 3 — CRÉDITO E CONTRATOS
+   1º CENTRO | 2º ESQUERDA | 3º DIREITA
    ========================================================= */
 
 * {
@@ -18,7 +19,6 @@ body {
 
 body {
     min-height: 100vh;
-
     background:
         radial-gradient(
             circle at 18% 45%,
@@ -39,7 +39,6 @@ body {
     width: 100%;
     max-width: 1800px;
     min-height: 100vh;
-
     margin: 0 auto;
     padding: 24px 42px 18px;
 
@@ -75,7 +74,6 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-
     color: #aaa;
     font-size: 11px;
     margin-top: 5px;
@@ -84,15 +82,13 @@ body {
 .status-dot {
     width: 7px;
     height: 7px;
-
     background: #00ff66;
     border-radius: 50%;
-
     box-shadow: 0 0 10px #00ff66;
 }
 
 /* =========================================================
-   TÍTULO PRINCIPAL
+   TÍTULO
    ========================================================= */
 
 .title-section {
@@ -100,7 +96,6 @@ body {
     align-items: center;
     justify-content: center;
     gap: 18px;
-
     margin-top: 18px;
     flex-shrink: 0;
 }
@@ -108,11 +103,8 @@ body {
 .title-line {
     width: 8px;
     height: 72px;
-
     background: #ff0000;
-
     transform: skewX(-14deg);
-
     box-shadow: 0 0 18px rgba(255, 0, 0, .25);
 }
 
@@ -129,7 +121,6 @@ body {
 
 .title-section p {
     margin-top: 9px;
-
     color: #ddd;
     font-size: 14px;
     letter-spacing: .3px;
@@ -149,9 +140,7 @@ body {
     min-height: 0;
 
     display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
     gap: 24px;
     margin-top: 20px;
@@ -159,28 +148,21 @@ body {
 
 .highlight-card {
     position: relative;
-
     min-width: 0;
+    min-height: 0;
 
     display: flex;
     flex-direction: column;
 
-    padding: 22px 20px 18px;
+    padding: 22px 16px 18px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #151515,
-            #080808
-        );
+    background: linear-gradient(145deg, #151515, #080808);
 
     border: 1px solid #292929;
     border-radius: 18px;
-
     overflow: hidden;
 
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.025);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.025);
 }
 
 .highlight-card.semana {
@@ -193,7 +175,6 @@ body {
 
 .highlight-card::after {
     content: "";
-
     position: absolute;
 
     width: 420px;
@@ -201,23 +182,21 @@ body {
 
     border-radius: 50%;
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(255, 0, 0, .08),
-            transparent 68%
-        );
+    background: radial-gradient(
+        circle,
+        rgba(255, 0, 0, .08),
+        transparent 68%
+    );
 
     bottom: -300px;
     left: 50%;
-
     transform: translateX(-50%);
 
     pointer-events: none;
 }
 
 /* =========================================================
-   CABEÇALHO DOS RANKINGS
+   CABEÇALHO DOS PAINÉIS
    ========================================================= */
 
 .card-header {
@@ -230,18 +209,15 @@ body {
     gap: 9px;
 
     flex-shrink: 0;
-
     position: relative;
-    z-index: 2;
+    z-index: 5;
 }
 
 .slash {
     color: #ff0000;
-
     font-size: 36px;
     font-weight: 900;
     line-height: .7;
-
     transform: skewX(-12deg);
 }
 
@@ -253,29 +229,20 @@ body {
 }
 
 /* =========================================================
-   PÓDIO — ORGANIZAÇÃO DOS TRÊS COLOCADOS
-
-   ESQUERDA: 2º LUGAR
-   CENTRO:   1º LUGAR
-   DIREITA:  3º LUGAR
+   PÓDIO — FLEXBOX
+   A ORDEM VISUAL É CONTROLADA PELA PROPRIEDADE ORDER
    ========================================================= */
 
 .podium-list {
     flex: 1;
     min-height: 0;
+    width: 100%;
 
-    display: grid;
+    display: flex !important;
+    flex-direction: row !important;
 
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1.15fr)
-        minmax(0, 1fr);
-
-    grid-template-areas:
-        "second first third";
-
-    align-items: center;
-    justify-items: stretch;
+    align-items: center !important;
+    justify-content: center !important;
 
     gap: 10px;
 
@@ -286,11 +253,13 @@ body {
 }
 
 /* =========================================================
-   ESTILO BASE DOS PARTICIPANTES
+   CARTÃO BASE
    ========================================================= */
 
 .podium-item {
     min-width: 0;
+
+    flex: 1 1 0;
 
     display: flex;
     flex-direction: column;
@@ -300,95 +269,88 @@ body {
 
     text-align: center;
 
-    padding: 12px 5px;
+    padding: 12px 6px;
 
     border-radius: 12px;
 
     background: rgba(255,255,255,.025);
-
     border: 1px solid rgba(255,255,255,.06);
-}
-
-/* =========================================================
-   1º LUGAR — CENTRO E MAIS ALTO
-   ========================================================= */
-
-.podium-item.first {
-    grid-area: first;
 
     position: relative;
-    z-index: 3;
-
-    transform: translateY(-24px);
-
-    min-height: 370px;
-
-    padding: 20px 8px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,0,0,.16),
-            rgba(20,8,8,.98)
-        );
-
-    border: 1px solid #ff0000;
-
-    box-shadow:
-        0 0 25px rgba(255,0,0,.20),
-        inset 0 0 20px rgba(255,0,0,.035);
 }
 
 /* =========================================================
    2º LUGAR — ESQUERDA
    ========================================================= */
 
-.podium-item.second {
-    grid-area: second;
+.podium-list > .podium-item.second {
+    order: 1 !important;
 
-    position: relative;
-    z-index: 2;
+    flex: 1 1 0;
 
     transform: translateY(15px);
 
     min-height: 320px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #242424,
-            #101010
-        );
+    background: linear-gradient(145deg, #242424, #101010);
 
     border: 1px solid #777;
+
+    z-index: 2;
+}
+
+/* =========================================================
+   1º LUGAR — CENTRO E MAIS ALTO
+   ========================================================= */
+
+.podium-list > .podium-item.first {
+    order: 2 !important;
+
+    flex: 1.15 1 0;
+
+    transform: translateY(-25px);
+
+    min-height: 370px;
+
+    padding: 20px 8px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255,0,0,.16),
+        rgba(20,8,8,.98)
+    );
+
+    border: 1px solid #ff0000;
+
+    box-shadow:
+        0 0 25px rgba(255,0,0,.20),
+        inset 0 0 20px rgba(255,0,0,.035);
+
+    z-index: 5;
 }
 
 /* =========================================================
    3º LUGAR — DIREITA
    ========================================================= */
 
-.podium-item.third {
-    grid-area: third;
+.podium-list > .podium-item.third {
+    order: 3 !important;
 
-    position: relative;
-    z-index: 2;
+    flex: 1 1 0;
 
     transform: translateY(15px);
 
     min-height: 320px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #241810,
-            #101010
-        );
+    background: linear-gradient(145deg, #241810, #101010);
 
     border: 1px solid #9a633c;
+
+    z-index: 2;
 }
 
 /* =========================================================
-   MEDALHAS / POSIÇÕES
+   POSIÇÕES
    ========================================================= */
 
 .podium-position {
@@ -396,11 +358,10 @@ body {
     align-items: center;
     justify-content: center;
 
-    min-width: 48px;
+    min-width: 45px;
     height: 34px;
 
     padding: 0 10px;
-
     margin-bottom: 12px;
 
     background: #ff0000;
@@ -412,6 +373,7 @@ body {
     font-weight: 900;
 
     box-shadow: 0 0 18px rgba(255,0,0,.20);
+    flex-shrink: 0;
 }
 
 .podium-item.second .podium-position {
@@ -434,15 +396,9 @@ body {
 
     border-radius: 50%;
 
-    background:
-        linear-gradient(
-            145deg,
-            #ff0000,
-            #700000
-        );
+    background: linear-gradient(145deg, #ff0000, #700000);
 
-    box-shadow:
-        0 0 25px rgba(255,0,0,.18);
+    box-shadow: 0 0 25px rgba(255,0,0,.18);
 
     flex-shrink: 0;
 }
@@ -497,7 +453,6 @@ body {
 .podium-name {
     width: 100%;
     max-width: 100%;
-
     min-height: 42px;
 
     display: flex;
@@ -518,7 +473,7 @@ body {
 }
 
 /* =========================================================
-   RESULTADOS
+   VALORES
    ========================================================= */
 
 .podium-value {
@@ -538,7 +493,7 @@ body {
 }
 
 .podium-item.first .podium-value {
-    font-size: clamp(17px, 1.5vw, 25px);
+    font-size: clamp(16px, 1.5vw, 25px);
 }
 
 /* =========================================================
@@ -561,7 +516,7 @@ body {
 
 .card-description {
     position: relative;
-    z-index: 2;
+    z-index: 5;
 
     margin-top: 10px;
 
@@ -577,12 +532,12 @@ body {
 }
 
 /* =========================================================
-   CARREGAMENTO E RANKING VAZIO
+   CARREGAMENTO E VAZIO
    ========================================================= */
 
 .loading,
 .empty-ranking {
-    grid-column: 1 / -1;
+    width: 100%;
 
     display: flex;
     align-items: center;
@@ -625,7 +580,7 @@ footer strong {
 }
 
 /* =========================================================
-   BOTÃO DE NAVEGAÇÃO
+   NAVEGAÇÃO
    ========================================================= */
 
 .screen-navigation {
@@ -673,7 +628,6 @@ footer strong {
 
 .screen-navigation:hover {
     border-color: #ff0000;
-
     background: rgba(255,0,0,.12);
 
     box-shadow: 0 0 20px rgba(255,0,0,.25);
@@ -682,7 +636,7 @@ footer strong {
 }
 
 /* =========================================================
-   RESPONSIVIDADE — NOTEBOOKS E TELAS MÉDIAS
+   NOTEBOOKS E TELAS MÉDIAS
    ========================================================= */
 
 @media (max-width: 1100px) {
@@ -696,16 +650,11 @@ footer strong {
     }
 
     .highlight-card {
-        padding: 20px 10px 16px;
+        padding: 20px 8px 16px;
     }
 
     .podium-list {
         gap: 6px;
-    }
-
-    .podium-item {
-        padding-left: 3px;
-        padding-right: 3px;
     }
 
     .podium-item.first .photo-wrapper {
@@ -715,14 +664,18 @@ footer strong {
 
     .podium-item.second .photo-wrapper,
     .podium-item.third .photo-wrapper {
-        width: 105px;
-        height: 105px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .podium-name {
+        font-size: 12px;
     }
 
 }
 
 /* =========================================================
-   RESPONSIVIDADE — TABLETS
+   TABLETS
    ========================================================= */
 
 @media (max-width: 800px) {
@@ -758,22 +711,22 @@ footer strong {
 
     .podium-item.second .photo-wrapper,
     .podium-item.third .photo-wrapper {
-        width: 100px;
-        height: 100px;
+        width: 95px;
+        height: 95px;
     }
 
     .podium-name {
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .podium-value {
-        font-size: 15px;
+        font-size: 14px;
     }
 
 }
 
 /* =========================================================
-   RESPONSIVIDADE — CELULARES
+   CELULARES
    ========================================================= */
 
 @media (max-width: 520px) {
@@ -823,33 +776,27 @@ footer strong {
     }
 
     .podium-list {
-        grid-template-columns:
-            minmax(0, 1fr)
-            minmax(0, 1.15fr)
-            minmax(0, 1fr);
-
-        grid-template-areas:
-            "second first third";
-
         gap: 3px;
+    }
+
+    .podium-item {
+        padding: 8px 3px;
     }
 
     .podium-item.first {
         transform: translateY(-8px);
         min-height: 250px;
-        padding: 10px 3px;
     }
 
     .podium-item.second,
     .podium-item.third {
         transform: translateY(5px);
         min-height: 225px;
-        padding: 8px 3px;
     }
 
     .podium-position {
-        min-width: 35px;
-        height: 27px;
+        min-width: 32px;
+        height: 26px;
         font-size: 12px;
         margin-bottom: 8px;
     }
@@ -861,8 +808,8 @@ footer strong {
 
     .podium-item.second .photo-wrapper,
     .podium-item.third .photo-wrapper {
-        width: 65px;
-        height: 65px;
+        width: 62px;
+        height: 62px;
     }
 
     .podium-name {
@@ -871,11 +818,11 @@ footer strong {
     }
 
     .podium-value {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .podium-item.first .podium-value {
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .podium-congratulations {
@@ -894,136 +841,6 @@ footer strong {
     .screen-navigation {
         right: 12px;
         bottom: 12px;
-    }
-
-}
-
-/* =====================================================
-   CORREÇÃO DEFINITIVA DA POSIÇÃO DO PÓDIO
-   1º CENTRO | 2º ESQUERDA | 3º DIREITA
-   ===================================================== */
-
-/* Organização dos três cartões */
-.podium-list {
-    display: grid !important;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1.15fr)
-        minmax(0, 1fr) !important;
-
-    grid-template-rows: 1fr !important;
-
-    align-items: center !important;
-    justify-items: stretch !important;
-
-    gap: 10px !important;
-}
-
-/* PRIMEIRO ELEMENTO: PRIMEIRO LUGAR NO CENTRO */
-.podium-list > .podium-item:nth-child(1) {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-
-    transform: translateY(-30px) !important;
-
-    min-height: 370px !important;
-
-    border: 1px solid #ff0000 !important;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255, 0, 0, .16),
-            rgba(20, 8, 8, .98)
-        ) !important;
-
-    z-index: 5 !important;
-}
-
-/* SEGUNDO ELEMENTO: SEGUNDO LUGAR À ESQUERDA */
-.podium-list > .podium-item:nth-child(2) {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-
-    transform: translateY(15px) !important;
-
-    min-height: 320px !important;
-
-    z-index: 2 !important;
-}
-
-/* TERCEIRO ELEMENTO: TERCEIRO LUGAR À DIREITA */
-.podium-list > .podium-item:nth-child(3) {
-    grid-column: 3 !important;
-    grid-row: 1 !important;
-
-    transform: translateY(15px) !important;
-
-    min-height: 320px !important;
-
-    z-index: 2 !important;
-}
-
-/* FOTO DO PRIMEIRO LUGAR */
-.podium-list > .podium-item:nth-child(1) .photo-wrapper {
-    width: 165px !important;
-    height: 165px !important;
-}
-
-/* FOTOS DO SEGUNDO E TERCEIRO */
-.podium-list > .podium-item:nth-child(2) .photo-wrapper,
-.podium-list > .podium-item:nth-child(3) .photo-wrapper {
-    width: 125px !important;
-    height: 125px !important;
-}
-
-/* TABLETS */
-@media (max-width: 800px) {
-
-    .podium-list > .podium-item:nth-child(1) {
-        transform: translateY(-15px) !important;
-        min-height: 310px !important;
-    }
-
-    .podium-list > .podium-item:nth-child(2),
-    .podium-list > .podium-item:nth-child(3) {
-        transform: translateY(10px) !important;
-        min-height: 270px !important;
-    }
-
-}
-
-/* CELULARES */
-@media (max-width: 520px) {
-
-    .podium-list {
-        grid-template-columns:
-            minmax(0, 1fr)
-            minmax(0, 1.15fr)
-            minmax(0, 1fr) !important;
-    }
-
-    .podium-list > .podium-item:nth-child(1) {
-        transform: translateY(-8px) !important;
-        min-height: 250px !important;
-    }
-
-    .podium-list > .podium-item:nth-child(2),
-    .podium-list > .podium-item:nth-child(3) {
-        transform: translateY(5px) !important;
-        min-height: 225px !important;
-    }
-
-    .podium-list > .podium-item:nth-child(1) .photo-wrapper {
-        width: 85px !important;
-        height: 85px !important;
-    }
-
-    .podium-list > .podium-item:nth-child(2) .photo-wrapper,
-    .podium-list > .podium-item:nth-child(3) .photo-wrapper {
-        width: 65px !important;
-        height: 65px !important;
     }
 
 }
