@@ -1,11 +1,6 @@
 // =========================================================
-// TELA 2 — RANKING ADEMICON
-// RANKING SEMANA + RANKING CONTRATOS
-// =========================================================
-
-
-// =========================================================
-// CONFIGURAÇÃO DA API
+// TELA 02 — ADEMICON
+// TOP 3 CRÉDITO + TOP 3 CONTRATOS
 // =========================================================
 
 const API_URL =
@@ -16,31 +11,13 @@ const API_URL =
 // INICIALIZAÇÃO
 // =========================================================
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-        console.log(
-            "================================="
-        );
+    console.log("ADEMICON — TELA 02 INICIADA");
 
-        console.log(
-            "ADEMICON — TELA 2"
-        );
+    carregarTela2();
 
-        console.log(
-            "TELA 2 CARREGADA"
-        );
-
-        console.log(
-            "================================="
-        );
-
-
-        carregarTela2();
-
-    }
-);
+});
 
 
 // =========================================================
@@ -51,166 +28,50 @@ async function carregarTela2() {
 
     try {
 
-        atualizarStatus(
-            "Conectando...",
-            false
-        );
+        atualizarStatus("Conectando...", false);
 
-
-        console.log(
-            "Chamando API..."
-        );
-
-
-        const resposta =
-            await fetch(
-                API_URL,
-                {
-                    method: "GET",
-                    cache: "no-cache"
-                }
-            );
-
-
-        console.log(
-            "Status API:",
-            resposta.status
-        );
-
+        const resposta = await fetch(API_URL, {
+            method: "GET",
+            cache: "no-cache"
+        });
 
         if (!resposta.ok) {
+            throw new Error("Erro HTTP: " + resposta.status);
+        }
 
+        const dados = await resposta.json();
+
+        if (!dados || dados.status !== "ok") {
             throw new Error(
-                "Erro HTTP: " +
-                resposta.status
+                dados?.mensagem || "A API retornou uma resposta inválida."
             );
-
         }
 
+        console.log("DADOS RECEBIDOS:", dados);
 
-        const dados =
-            await resposta.json();
-
-
-        console.log(
-            "================================="
+        // Ranking de crédito
+        atualizarRanking(
+            "listaSemana",
+            dados.rankingSemana,
+            "credito"
         );
 
-        console.log(
-            "DADOS RECEBIDOS DA API"
+        // Ranking de contratos
+        atualizarRanking(
+            "listaContratos",
+            dados.rankingContratos,
+            "quantidade"
         );
 
-        console.log(
-            dados
-        );
+        atualizarStatus("Dados atualizados", true);
 
-        console.log(
-            "================================="
-        );
+        console.log("Tela 02 atualizada com sucesso.");
 
+    } catch (erro) {
 
-        if (!dados) {
+        console.error("ERRO AO CARREGAR TELA 02:", erro);
 
-            throw new Error(
-                "API retornou dados vazios."
-            );
-
-        }
-
-
-        // =================================================
-        // STATUS
-        // =================================================
-
-        atualizarStatus(
-            "Dados atualizados",
-            true
-        );
-
-
-        // =================================================
-        // RANKING SEMANA
-        // =================================================
-
-        if (
-            dados.rankingSemana
-        ) {
-
-            console.log(
-                "RANKING SEMANA:",
-                dados.rankingSemana
-            );
-
-
-            atualizarRankingSemana(
-                dados.rankingSemana
-            );
-
-        } else {
-
-            console.warn(
-                "rankingSemana não encontrado."
-            );
-
-        }
-
-
-        // =================================================
-        // RANKING CONTRATOS
-        // =================================================
-
-        if (
-            dados.rankingContratos
-        ) {
-
-            console.log(
-                "RANKING CONTRATOS:",
-                dados.rankingContratos
-            );
-
-
-            atualizarRankingContratos(
-                dados.rankingContratos
-            );
-
-        } else {
-
-            console.warn(
-                "rankingContratos não encontrado."
-            );
-
-        }
-
-
-        console.log(
-            "Tela 2 atualizada com sucesso."
-        );
-
-    }
-
-    catch (erro) {
-
-        console.error(
-            "================================="
-        );
-
-        console.error(
-            "ERRO AO CARREGAR TELA 2"
-        );
-
-        console.error(
-            erro
-        );
-
-        console.error(
-            "================================="
-        );
-
-
-        atualizarStatus(
-            "Erro na conexão",
-            false
-        );
+        atualizarStatus("Erro na conexão", false);
 
     }
 
@@ -218,192 +79,144 @@ async function carregarTela2() {
 
 
 // =========================================================
-// RANKING SEMANA
+// MONTAR OS RANKINGS
 // =========================================================
 
-function atualizarRankingSemana(
-    dados
+function atualizarRanking(
+    elementoId,
+    ranking,
+    tipo
 ) {
 
-    console.log(
-        "Aplicando Ranking Semana..."
-    );
+    const container =
+        document.getElementById(elementoId);
 
-
-    // =====================================================
-    // NOME — RANKINGSEMANA!A2
-    // =====================================================
-
-    colocarTexto(
-        "nomeSemana",
-        dados.nome || "-"
-    );
-
-
-    // =====================================================
-    // CRÉDITO — RANKINGSEMANA!G2
-    // =====================================================
-
-    colocarTexto(
-        "creditoSemana",
-        moeda(
-            dados.credito
-        )
-    );
-
-
-    // =====================================================
-    // FOTO — RANKINGSEMANA!L2
-    // =====================================================
-
-    const foto =
-        document.getElementById(
-            "fotoSemana"
-        );
-
-
-    if (!foto) {
-
+    if (!container) {
+        console.warn("Container não encontrado:", elementoId);
         return;
-
     }
 
+    container.innerHTML = "";
 
-    const url =
-        converterFotoDrive(
-            dados.foto
-        );
+    if (!Array.isArray(ranking) || ranking.length === 0) {
 
+        container.innerHTML = `
+            <div class="empty-ranking">
+                Nenhum resultado disponível.
+            </div>
+        `;
 
-    if (url) {
+        return;
+    }
 
-        foto.src = url;
+    const medalhas = ["1º", "2º", "3º"];
 
-        foto.style.display =
-            "block";
+    const classes = ["first", "second", "third"];
 
+    ranking.slice(0, 3).forEach(function (item, indice) {
 
-        foto.onerror =
-            function () {
+        const nome =
+            item.nome || "CONSULTOR";
 
-                console.warn(
-                    "Erro ao carregar foto do Ranking Semana:",
-                    dados.foto
+        const foto =
+            converterFotoDrive(item.foto);
+
+        let valor = "-";
+
+        if (tipo === "credito") {
+
+            valor = moeda(item.credito);
+
+        } else {
+
+            const quantidade =
+                numero(item.quantidade);
+
+            valor =
+                quantidade +
+                (
+                    quantidade === 1
+                        ? " CONTRATO"
+                        : " CONTRATOS"
                 );
 
+        }
 
-                this.style.display =
-                    "none";
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "podium-item " + classes[indice];
+
+        const posicao =
+            document.createElement("div");
+
+        posicao.className = "podium-position";
+        posicao.textContent = medalhas[indice];
+
+        const fotoWrapper =
+            document.createElement("div");
+
+        fotoWrapper.className = "photo-wrapper";
+
+        if (foto) {
+
+            const imagem =
+                document.createElement("img");
+
+            imagem.src = foto;
+            imagem.alt = "Foto de " + nome;
+            imagem.loading = "eager";
+
+            imagem.onerror = function () {
+
+                fotoWrapper.innerHTML = `
+                    <div class="photo-placeholder">
+                        SEM FOTO
+                    </div>
+                `;
 
             };
 
-    } else {
+            fotoWrapper.appendChild(imagem);
 
-        foto.removeAttribute(
-            "src"
-        );
+        } else {
 
-    }
+            fotoWrapper.innerHTML = `
+                <div class="photo-placeholder">
+                    SEM FOTO
+                </div>
+            `;
 
-}
+        }
 
+        const nomeElemento =
+            document.createElement("h3");
 
-// =========================================================
-// RANKING CONTRATOS
-// =========================================================
+        nomeElemento.className = "podium-name";
+        nomeElemento.textContent = nome;
 
-function atualizarRankingContratos(
-    dados
-) {
+        const valorElemento =
+            document.createElement("div");
 
-    console.log(
-        "Aplicando Ranking Contratos..."
-    );
+        valorElemento.className = "podium-value";
+        valorElemento.textContent = valor;
 
+        const parabens =
+            document.createElement("div");
 
-    // =====================================================
-    // NOME — RANKINGCONTRATOS!A2
-    // =====================================================
+        parabens.className = "podium-congratulations";
+        parabens.textContent = "PARABÉNS!";
 
-    colocarTexto(
-        "nomeContratos",
-        dados.nome || "-"
-    );
+        card.appendChild(posicao);
+        card.appendChild(fotoWrapper);
+        card.appendChild(nomeElemento);
+        card.appendChild(valorElemento);
+        card.appendChild(parabens);
 
+        container.appendChild(card);
 
-    // =====================================================
-    // QUANTIDADE — RANKINGCONTRATOS!J2
-    // =====================================================
-
-    const quantidade =
-        numero(
-            dados.quantidade
-        );
-
-
-    colocarTexto(
-        "quantidadeContratos",
-        quantidade +
-        (
-            quantidade === 1
-                ? " CONTRATO"
-                : " CONTRATOS"
-        )
-    );
-
-
-    // =====================================================
-    // FOTO — RANKINGCONTRATOS!L2
-    // =====================================================
-
-    const foto =
-        document.getElementById(
-            "fotoContratos"
-        );
-
-
-    if (!foto) {
-
-        return;
-
-    }
-
-
-    const url =
-        converterFotoDrive(
-            dados.foto
-        );
-
-
-    if (url) {
-
-        foto.src = url;
-
-        foto.style.display =
-            "block";
-
-
-        foto.onerror =
-            function () {
-
-                console.warn(
-                    "Erro ao carregar foto do Ranking Contratos:",
-                    dados.foto
-                );
-
-
-                this.style.display =
-                    "none";
-
-            };
-
-    } else {
-
-        foto.removeAttribute(
-            "src"
-        );
-
-    }
+    });
 
 }
 
@@ -412,53 +225,31 @@ function atualizarRankingContratos(
 // STATUS DA API
 // =========================================================
 
-function atualizarStatus(
-    texto,
-    conectado
-) {
+function atualizarStatus(texto, conectado) {
 
     const elemento =
-        document.getElementById(
-            "status"
-        );
-
+        document.getElementById("status");
 
     if (elemento) {
-
-        elemento.textContent =
-            texto;
-
+        elemento.textContent = texto;
     }
-
 
     const bolinha =
-        document.querySelector(
-            ".status-dot"
-        );
-
+        document.querySelector(".status-dot");
 
     if (!bolinha) {
-
         return;
-
     }
-
 
     if (conectado) {
 
-        bolinha.style.background =
-            "#00ff66";
-
-        bolinha.style.boxShadow =
-            "0 0 10px #00ff66";
+        bolinha.style.background = "#00ff66";
+        bolinha.style.boxShadow = "0 0 10px #00ff66";
 
     } else {
 
-        bolinha.style.background =
-            "#ff0000";
-
-        bolinha.style.boxShadow =
-            "0 0 10px #ff0000";
+        bolinha.style.background = "#ff0000";
+        bolinha.style.boxShadow = "0 0 10px #ff0000";
 
     }
 
@@ -469,97 +260,43 @@ function atualizarStatus(
 // GOOGLE DRIVE — CONVERTER FOTO
 // =========================================================
 
-function converterFotoDrive(
-    url
-) {
+function converterFotoDrive(url) {
 
     if (!url) {
-
         return "";
-
     }
 
+    url = String(url).trim();
 
-    url =
-        String(
-            url
-        ).trim();
-
-
-    // =====================================================
-    // JÁ É THUMBNAIL
-    // =====================================================
-
-    if (
-        url.includes(
-            "drive.google.com/thumbnail"
-        )
-    ) {
-
+    if (url.includes("drive.google.com/thumbnail")) {
         return url;
-
     }
-
-
-    // =====================================================
-    // DRIVE:
-    // /file/d/ID/view
-    // =====================================================
 
     const match =
-        url.match(
-            /\/file\/d\/([^/]+)/
-        );
+        url.match(/\/file\/d\/([^/]+)/);
 
-
-    if (
-        match &&
-        match[1]
-    ) {
-
-        const id =
-            match[1];
-
+    if (match && match[1]) {
 
         return (
             "https://drive.google.com/thumbnail?id=" +
-            encodeURIComponent(id) +
+            encodeURIComponent(match[1]) +
             "&sz=w600"
         );
 
     }
-
-
-    // =====================================================
-    // DRIVE:
-    // ?id=ID
-    // =====================================================
 
     const idMatch =
-        url.match(
-            /[?&]id=([^&]+)/
-        );
+        url.match(/[?&]id=([^&]+)/);
 
-
-    if (
-        idMatch &&
-        idMatch[1]
-    ) {
+    if (idMatch && idMatch[1]) {
 
         return (
             "https://drive.google.com/thumbnail?id=" +
-            encodeURIComponent(
-                idMatch[1]
-            ) +
+            encodeURIComponent(idMatch[1]) +
             "&sz=w600"
         );
 
     }
-
-
-    // =====================================================
-    // URL ORIGINAL
-    // =====================================================
 
     return url;
 
@@ -570,103 +307,39 @@ function converterFotoDrive(
 // CONVERTER PARA NÚMERO
 // =========================================================
 
-function numero(
-    valor
-) {
+function numero(valor) {
 
     if (
         valor === null ||
         valor === undefined ||
         valor === ""
     ) {
-
         return 0;
+    }
+
+    if (typeof valor === "number") {
+
+        return isNaN(valor) ? 0 : valor;
 
     }
 
+    let texto = String(valor).trim();
 
-    // =====================================================
-    // JÁ É NUMBER
-    // =====================================================
+    texto = texto.replace(/R\$/gi, "").trim();
 
-    if (
-        typeof valor ===
-        "number"
-    ) {
+    if (texto.includes(",")) {
 
-        return isNaN(
-            valor
-        )
-            ? 0
-            : valor;
+        texto = texto
+            .replace(/\./g, "")
+            .replace(",", ".");
 
     }
 
+    texto = texto.replace(/[^\d.-]/g, "");
 
-    let texto =
-        String(
-            valor
-        ).trim();
+    const resultado = parseFloat(texto);
 
-
-    // =====================================================
-    // REMOVER R$
-    // =====================================================
-
-    texto =
-        texto.replace(
-            /R\$/gi,
-            ""
-        ).trim();
-
-
-    // =====================================================
-    // FORMATO BRASILEIRO
-    // 1.234.567,89
-    // =====================================================
-
-    if (
-        texto.includes(",")
-    ) {
-
-        texto =
-            texto.replace(
-                /\./g,
-                ""
-            );
-
-
-        texto =
-            texto.replace(
-                ",",
-                "."
-            );
-
-    }
-
-
-    // =====================================================
-    // REMOVER CARACTERES
-    // =====================================================
-
-    texto =
-        texto.replace(
-            /[^\d.-]/g,
-            ""
-        );
-
-
-    const resultado =
-        parseFloat(
-            texto
-        );
-
-
-    return isNaN(
-        resultado
-    )
-        ? 0
-        : resultado;
+    return isNaN(resultado) ? 0 : resultado;
 
 }
 
@@ -675,51 +348,15 @@ function numero(
 // FORMATAÇÃO DE MOEDA
 // =========================================================
 
-function moeda(
-    valor
-) {
+function moeda(valor) {
 
-    return numero(
-        valor
-    ).toLocaleString(
+    return numero(valor).toLocaleString(
         "pt-BR",
         {
             style: "currency",
             currency: "BRL"
         }
     );
-
-}
-
-
-// =========================================================
-// COLOCAR TEXTO
-// =========================================================
-
-function colocarTexto(
-    id,
-    texto
-) {
-
-    const elemento =
-        document.getElementById(
-            id
-        );
-
-
-    if (elemento) {
-
-        elemento.textContent =
-            texto;
-
-    } else {
-
-        console.warn(
-            "Elemento não encontrado:",
-            id
-        );
-
-    }
 
 }
 
