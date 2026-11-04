@@ -897,3 +897,133 @@ footer strong {
     }
 
 }
+
+/* =====================================================
+   CORREÇÃO DEFINITIVA DA POSIÇÃO DO PÓDIO
+   1º CENTRO | 2º ESQUERDA | 3º DIREITA
+   ===================================================== */
+
+/* Organização dos três cartões */
+.podium-list {
+    display: grid !important;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1.15fr)
+        minmax(0, 1fr) !important;
+
+    grid-template-rows: 1fr !important;
+
+    align-items: center !important;
+    justify-items: stretch !important;
+
+    gap: 10px !important;
+}
+
+/* PRIMEIRO ELEMENTO: PRIMEIRO LUGAR NO CENTRO */
+.podium-list > .podium-item:nth-child(1) {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+
+    transform: translateY(-30px) !important;
+
+    min-height: 370px !important;
+
+    border: 1px solid #ff0000 !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 0, 0, .16),
+            rgba(20, 8, 8, .98)
+        ) !important;
+
+    z-index: 5 !important;
+}
+
+/* SEGUNDO ELEMENTO: SEGUNDO LUGAR À ESQUERDA */
+.podium-list > .podium-item:nth-child(2) {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+
+    transform: translateY(15px) !important;
+
+    min-height: 320px !important;
+
+    z-index: 2 !important;
+}
+
+/* TERCEIRO ELEMENTO: TERCEIRO LUGAR À DIREITA */
+.podium-list > .podium-item:nth-child(3) {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+
+    transform: translateY(15px) !important;
+
+    min-height: 320px !important;
+
+    z-index: 2 !important;
+}
+
+/* FOTO DO PRIMEIRO LUGAR */
+.podium-list > .podium-item:nth-child(1) .photo-wrapper {
+    width: 165px !important;
+    height: 165px !important;
+}
+
+/* FOTOS DO SEGUNDO E TERCEIRO */
+.podium-list > .podium-item:nth-child(2) .photo-wrapper,
+.podium-list > .podium-item:nth-child(3) .photo-wrapper {
+    width: 125px !important;
+    height: 125px !important;
+}
+
+/* TABLETS */
+@media (max-width: 800px) {
+
+    .podium-list > .podium-item:nth-child(1) {
+        transform: translateY(-15px) !important;
+        min-height: 310px !important;
+    }
+
+    .podium-list > .podium-item:nth-child(2),
+    .podium-list > .podium-item:nth-child(3) {
+        transform: translateY(10px) !important;
+        min-height: 270px !important;
+    }
+
+}
+
+/* CELULARES */
+@media (max-width: 520px) {
+
+    .podium-list {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1.15fr)
+            minmax(0, 1fr) !important;
+    }
+
+    .podium-list > .podium-item:nth-child(1) {
+        transform: translateY(-8px) !important;
+        min-height: 250px !important;
+    }
+
+    .podium-list > .podium-item:nth-child(2),
+    .podium-list > .podium-item:nth-child(3) {
+        transform: translateY(5px) !important;
+        min-height: 225px !important;
+    }
+
+    .podium-list > .podium-item:nth-child(1) .photo-wrapper {
+        width: 85px !important;
+        height: 85px !important;
+    }
+
+    .podium-list > .podium-item:nth-child(2) .photo-wrapper,
+    .podium-list > .podium-item:nth-child(3) .photo-wrapper {
+        width: 65px !important;
+        height: 65px !important;
+    }
+
+}
